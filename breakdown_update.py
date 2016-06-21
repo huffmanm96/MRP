@@ -25,22 +25,32 @@ def breakdown(filepath, filetype, j_def, column, keep_headers):
     for row in read_file:
         if row:
             values.append(row[column])
-    for item in values:
+    for item in values[1:]:
         if item in clean:
             pass
         else:
-            clean.append(item)
+            clean.append(item)  
+    r_file = open(filepath,'r')
+    repeat_file = csv.reader(r_file) 
+    rows = []
     for val in clean:
-        for row in read_file:
-            if row[column] == val:
-                with open('%s/%s/%s/%s_%s_%s.csv' % (base_path, filetype, j_def, filetype, j_def, val), 'r') as _read:
-                    for a_row in _read:
-                        with open('%s/%s/%s/%s_%s_%s.csv' % (base_path, filetype, j_def, filetype, j_def, val), 'a') as _ap:
-                            if keep_headers == True:
-                                headers = csv.reader.next()
-                                _ap.writerow(headers)
-                                _ap.write(row)
-                            else:
-                                _ap.write(row)
-            else:
-                pass
+        print(val)
+#         for a_row in repeat_file:
+#             if a_row:
+#                 if val == a_row[column]:
+#                     with open('%s/%s/%s/%s_%s_%s.csv' % (base_path, filetype, j_def, filetype, j_def, val), 'a') as _ap:
+#                         if keep_headers == True:
+#                             headers = csv.reader.next()
+#                             h = csv.writer(_ap, dialect='excel')
+#                             h.writerow(headers)
+#                             h.writerow(a_row)
+#                         else:
+#                             l = csv.writer(_ap, dialect='excel')
+#                             l.writerow(a_row)
+#                 else:
+#                     pass
+
+
+print(breakdown('/Users/maddiehuffman/Desktop/broken/MC/MRPmail.csv', 'MC', 'County', 3, False))
+
+    
