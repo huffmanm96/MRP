@@ -220,6 +220,10 @@ for a_list in cl_r_list:
         SMTPmail.send_mail( 'dnormile@migop.org', a_list[3], (('Absentee Distribution List %s/%s/%s %s:%s:%s') % (now.month, now.day, now.year, now.hour, now.minute, now.second)), "", [(('/Users/maddiehuffman/Desktop/broken/%s/%s/%s_%s_%s.csv') % (filetype,str(a_list[6]),filetype,str(a_list[6]),str(a_list[7])))])
     elif a_list[5] == 'Phone & Mail - cumulative and daily updates':
         filetype = 'MPC'
-        SMTPmail.send_mail( 'dnormile@migop.org', a_list[3], (('Absentee Distribution List %s/%s/%s %s:%s:%s') % (now.month, now.day, now.year, now.hour, now.minute, now.second)), "", [('/Users/maddiehuffman/Desktop/broken/{0}/{1}/{2}_{3}_{4}.csv'.format(filetype,str(a_list[6]),filetype,str(a_list[6]),str(a_list[7])))])
+        SMTPmail.send_mail( 'dnormile@migop.org', a_list[3], (('Absentee Distribution List %s/%s/%s %s:%s:%s') % (now.month, now.day, now.year, now.hour, now.minute, now.second)), "", [(('/Users/maddiehuffman/Desktop/broken/%s/%s/%s_%s_%s.csv') % (filetype,str(a_list[6]),filetype,str(a_list[6]),str(a_list[7])))])
 
 print('Mailing process finished')
+
+
+
+
